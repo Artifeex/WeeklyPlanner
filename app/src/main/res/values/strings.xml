@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">WeeklyPlanner</string>
+    <string name="progress_text">Прогресс текущего дня:</string>
+    <string name="main_activity_week_days_textview">Дни недели</string>
+    <string name="monday">Понедельник</string>
+    <string name="tuesday">Вторник</string>
+    <string name="wednesday">Среда</string>
+    <string name="thursday">Четверг</string>
+    <string name="friday">Пятница</string>
+    <string name="saturday">Суббота</string>
+    <string name="sunday">Воскресенье</string>
+    <string name="save_button">Сохранить</string>
+    <string name="hint_text">Сходить в магазин</string>
+    <string name="popup_menu_editText">Редактировать</string>
+    <string name="popup_menu_deleteText">Удалить</string>
+    <string name="new_week_text">Новая неделя</string>
+</resources>
