@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         Calendar now = Calendar.getInstance();
         int currentDay = now.get(Calendar.DAY_OF_WEEK) - 1;
+        Log.println(Log.DEBUG, "days", "currentDay = " + currentDay);
+        if(currentDay == 0) {
+            currentDay = 7;
+        }
         initDays(currentDay);
 
         newWeekTextView.setOnClickListener(new View.OnClickListener() {
