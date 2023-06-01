@@ -67,7 +67,7 @@ public class AddTaskActivity extends AppCompatActivity {
                     if(newText.equals("")) {
                         Toast.makeText(AddTaskActivity.this, "Заполните поле!", Toast.LENGTH_SHORT).show();
                     } else {
-                        addTaskViewModel.changeTask(taskId, newText);
+                        addTaskViewModel.changeTextTask(taskId, newText);
                     }
 
                 } else {

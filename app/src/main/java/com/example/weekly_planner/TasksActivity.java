@@ -26,7 +26,6 @@ public class TasksActivity extends AppCompatActivity {
     private FloatingActionButton addButton;
 
     private RecyclerView recyclerView;
-    private TasksDatabase database;
     private TasksAdapter adapter;
 
     private TasksViewModel tasksViewModel;
@@ -38,7 +37,6 @@ public class TasksActivity extends AppCompatActivity {
 
         initViews();
         tasksViewModel = new TasksViewModel(getApplication());
-        database = TasksDatabase.getInstance(getApplication());
         initIntent();
 
         adapter = new TasksAdapter();
@@ -46,13 +44,7 @@ public class TasksActivity extends AppCompatActivity {
         adapter.setOnTaskCompleteListener(new TasksAdapter.onTaskCompleteListener() {
             @Override
             public void onTaskComplete(Task task) {
-                Thread thread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        database.taskDao().actionWithTask(task.getId(), task.isDone());
-                    }
-                });
-                thread.start();
+                tasksViewModel.actionWithTask(task.getId(), task.isDone());
             }
         });
 

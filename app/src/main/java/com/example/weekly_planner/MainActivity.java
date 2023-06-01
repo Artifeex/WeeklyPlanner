@@ -101,9 +101,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private int getDifferens(int currentDay, int day) {
-        return currentDay - day;
-    }
 
     private String updateCountTasks(int newCountTasks, String progress) {
         int startIndex = progress.indexOf("/") + 1;

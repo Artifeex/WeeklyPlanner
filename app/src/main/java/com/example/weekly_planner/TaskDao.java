@@ -7,6 +7,9 @@ import androidx.room.Query;
 
 import java.util.List;
 
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Single;
+
 @Dao
 public interface TaskDao {
 
@@ -14,10 +17,10 @@ public interface TaskDao {
     public LiveData<List<Task>> getTasks(int day);
 
     @Insert
-    public void add(Task task);
+    public Completable add(Task task);
 
     @Query("DELETE FROM TASKS WHERE id = :id")
-    public void delete(int id);
+    public Completable delete(int id);
 
     @Query("SELECT COUNT(*) FROM TASKS WHERE owner =:day")
     public LiveData<Integer> getCountTasks(int day);
@@ -26,18 +29,18 @@ public interface TaskDao {
     public LiveData<Integer> getCountCompletedTasks(int day);
 
     @Query("UPDATE TASKS SET isDone = :isDone WHERE id = :id")
-    public void actionWithTask(int id, boolean isDone);
+    public Completable actionWithTask(int id, boolean isDone);
 
     @Query("SELECT * FROM TASKS WHERE id = :id")
     public Task getTaskById(int id);
 
     @Query("UPDATE TASKS SET text = :text WHERE id = :id")
-    public void updateText(int id, String text);
+    public Completable updateText(int id, String text);
 
     @Query("DELETE FROM TASKS")
-    public void clearDatabase();
+    public Completable clearDatabase();
 
     @Query("SELECT TEXT FROM TASKS WHERE id = :id")
-    public String getTaskText(int id);
+    public Single<String> getTaskText(int id);
 
 }
